@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; }
-        header { background-color: #004a99; color: white; padding: 20px; }
+        header { background-color: #004a99; color: white; padding: 20px; position: relative; }
         .card { background: white; padding: 30px; margin: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         button#btn-abrir { background-color: #28a745; color: white; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; margin-bottom: 20px; }
         
@@ -21,11 +21,25 @@
         .barra-fechar { padding: 15px; background: #333; text-align: right; }
         button#btn-fechar { background: #dc3545; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; }
         iframe { width: 100%; height: 90vh; border: none; }
+
+        /* Estilo do Selo Holográfico 4K */
+        .selo-seguranca {
+            background-image: url('image_5.png'); /* Caminho para a imagem 4K gerada */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 40px; /* Altura do selo conforme marcação */
+            display: block;
+            margin: 10px 0;
+            border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.3); /* Efeito de brilho */
+        }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="selo-seguranca"></div>
         <h1>MARCELO IMPOSTO DE RENDA 2026</h1>
         <p>Portal de Orientação para Consulta de Restituição</p>
     </header>
@@ -50,6 +64,8 @@
         </div>
         <iframe src="https://www.restituicao.receita.fazenda.gov.br/" title="Consulta Receita Federal"></iframe>
     </div>
+
+    <div class="selo-seguranca"></div>
 
     <script>
         const btnAbrir = document.getElementById('btn-abrir');
