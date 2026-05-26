@@ -10,36 +10,32 @@
         body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; }
         header { background-color: #004a99; color: white; padding: 20px; }
         
-        /* Selo Holográfico Superior (Estático e lento) */
+        /* Selo Holográfico Superior */
         .selo-holografico {
             background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
             background-size: 300% 100%;
-            /* Velocidade "tartaruga" de 60 segundos */
             animation: brilho 60s linear infinite; 
-            color: #000;
-            font-weight: 900;
-            font-size: 14px;
-            padding: 8px 0;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            text-transform: uppercase;
-            border-bottom: 2px solid #fff;
+            color: #000; font-weight: 900; font-size: 14px; padding: 8px 0; width: 100%; overflow: hidden; white-space: nowrap; text-transform: uppercase; border-bottom: 2px solid #fff;
         }
-
-        @keyframes brilho {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
-        }
-
-        /* Texto travado (sem animação de movimento) */
-        .texto-selo {
-            display: inline-block;
-        }
+        @keyframes brilho { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
 
         .card { background: white; padding: 30px; margin: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        
+        /* Botão Consultar */
         button#btn-abrir { background-color: #28a745; color: white; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; margin-bottom: 20px; }
-        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; font-size: 16px; width: 80%; }
+        
+        /* Botão WhatsApp com Efeito Radar Sutil */
+        .radar-whatsapp { position: relative; display: inline-block; width: 80%; }
+        .radar-whatsapp::before {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+            border: 2px solid rgba(37, 211, 102, 0.4); border-radius: 5px;
+            transform: translate(-50%, -50%); animation: sonar-sutil 3s infinite; z-index: 0;
+        }
+        @keyframes sonar-sutil {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+        }
+        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 25px; border-radius: 5px; text-decoration: none; display: block; font-weight: bold; font-size: 16px; position: relative; z-index: 1; }
         
         #modal-consulta { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 1000; }
         .barra-fechar { padding: 15px; background: #333; text-align: right; }
@@ -49,11 +45,7 @@
 </head>
 <body>
 
-    <div class="selo-holografico">
-        <div class="texto-selo">
-            MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
-        </div>
-    </div>
+    <div class="selo-holografico">MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026</div>
 
     <header>
         <h1>MARCELO IMPOSTO DE RENDA 2026</h1>
@@ -66,16 +58,17 @@
             <button id="btn-abrir">Consultar no Portal Oficial</button>
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
             <p>Dúvidas? Fale comigo:</p>
-            <a href="https://wa.me/5519981452033" class="btn-whatsapp" target="_blank">
-                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
-            </a>
+            
+            <div class="radar-whatsapp">
+                <a href="https://wa.me/5519981452033" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                </a>
+            </div>
         </section>
     </main>
 
     <div id="modal-consulta">
-        <div class="barra-fechar">
-            <button id="btn-fechar">Fechar e Voltar</button>
-        </div>
+        <div class="barra-fechar"><button id="btn-fechar">Fechar e Voltar</button></div>
         <iframe src="https://www.restituicao.receita.fazenda.gov.br/" title="Consulta"></iframe>
     </div>
 
