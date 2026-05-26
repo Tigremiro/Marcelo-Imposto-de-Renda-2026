@@ -10,11 +10,12 @@
         body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; }
         header { background-color: #004a99; color: white; padding: 20px; }
         
-        /* Letreiro Holográfico */
+        /* Selo Holográfico Superior (Estático e lento) */
         .selo-holografico {
             background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
             background-size: 300% 100%;
-            animation: brilho 3s linear infinite;
+            /* Velocidade "tartaruga" de 60 segundos */
+            animation: brilho 60s linear infinite; 
             color: #000;
             font-weight: 900;
             font-size: 14px;
@@ -24,7 +25,6 @@
             white-space: nowrap;
             text-transform: uppercase;
             border-bottom: 2px solid #fff;
-            position: relative;
         }
 
         @keyframes brilho {
@@ -32,15 +32,9 @@
             100% { background-position: 300% 50%; }
         }
 
-        .letreiro-texto {
+        /* Texto travado (sem animação de movimento) */
+        .texto-selo {
             display: inline-block;
-            padding-left: 100%;
-            animation: mover 15s linear infinite;
-        }
-
-        @keyframes mover {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
         }
 
         .card { background: white; padding: 30px; margin: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
@@ -56,8 +50,8 @@
 <body>
 
     <div class="selo-holografico">
-        <div class="letreiro-texto">
-            MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
+        <div class="texto-selo">
+            MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
         </div>
     </div>
 
@@ -77,12 +71,6 @@
             </a>
         </section>
     </main>
-
-    <div class="selo-holografico">
-        <div class="letreiro-texto">
-            MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
-        </div>
-    </div>
 
     <div id="modal-consulta">
         <div class="barra-fechar">
