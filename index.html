@@ -10,24 +10,41 @@
         body { font-family: sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; }
         header { background-color: #004a99; color: white; padding: 20px; }
         
-        /* Estilo do Selo Holográfico Fixo */
+        /* Letreiro Holográfico */
         .selo-holografico {
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
-            background-size: 400% 400%;
-            color: white;
-            font-weight: bold;
-            font-size: 10px;
-            padding: 5px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 300% 100%;
+            animation: brilho 3s linear infinite;
+            color: #000;
+            font-weight: 900;
+            font-size: 14px;
+            padding: 8px 0;
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
             text-transform: uppercase;
             border-bottom: 2px solid #fff;
+            position: relative;
+        }
+
+        @keyframes brilho {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        .letreiro-texto {
+            display: inline-block;
+            padding-left: 100%;
+            animation: mover 15s linear infinite;
+        }
+
+        @keyframes mover {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
         }
 
         .card { background: white; padding: 30px; margin: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         button#btn-abrir { background-color: #28a745; color: white; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; margin-bottom: 20px; }
-        
         .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; font-size: 16px; width: 80%; }
         
         #modal-consulta { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 1000; }
@@ -39,7 +56,9 @@
 <body>
 
     <div class="selo-holografico">
-        MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
+        <div class="letreiro-texto">
+            MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
+        </div>
     </div>
 
     <header>
@@ -60,7 +79,9 @@
     </main>
 
     <div class="selo-holografico">
-        MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
+        <div class="letreiro-texto">
+            MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026 - MARCELO IMPOSTO DE RENDA 2026
+        </div>
     </div>
 
     <div id="modal-consulta">
